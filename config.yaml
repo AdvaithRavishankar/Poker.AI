@@ -1,0 +1,100 @@
+# v16: hand score + chips won + 0.2 fold punishment
+environment-constants:
+  reward_multiplier: 1.1
+  winner_reward_multiplier: 1.2
+  max_hand_score: 7462
+  hand_score_multiplier: 1
+  hand_score_reward_multiplier: 0.3
+
+easy-six-player:
+  stack: 500
+  small-blind: 2
+  big-blind: 5
+  buyin_limit: 3
+  players: 6
+  opponents:
+    rl-agent:
+      sac: []
+    random-agent: 4
+    crammer-agent: 1
+  agent_id: 0
+
+normal-six-player:
+  stack: 500
+  small-blind: 2
+  big-blind: 5
+  buyin_limit: 3
+  players: 6
+  opponents:
+    rl-agent:
+      sac: []
+    random-agent: 2
+    crammer-agent: 3
+  agent_id: 0
+
+hard-six-player:
+  stack: 500
+  small-blind: 2
+  big-blind: 5
+  buyin_limit: 3
+  players: 6
+  opponents:
+    rl-agent:
+      sac: []
+    random-agent: 0
+    crammer-agent: 5
+  agent_id: 0
+
+sac-six-player:
+  stack: 500
+  small-blind: 2
+  big-blind: 5
+  buyin_limit: 0
+  players: 6
+  opponents:
+    rl-agent:
+      sac:
+        [
+          #"models/sac/v13/15000000.zip",
+          # "models/sac/v12/20000000_log/best_model.zip",
+          # "models/sac/v10/8000000_log/best_model.zip",
+          # "models/sac/v10/8000000_log/best_model.zip",
+          # "models/sac/v10/8000000_log/best_model.zip",
+        ]
+      # sac: []
+    random-agent: 1
+    crammer-agent: 4
+  agent_id: 0
+
+sac-test-six-player:
+  stack: 500
+  small-blind: 2
+  big-blind: 5
+  buyin_limit: 3
+  players: 6
+  opponents:
+    rl-agent:
+      sac:
+        [
+          "models/sac/v2/200000",
+          "models/sac/v1/1000000",
+          "models/sac/v1/50000",
+          "models/sac/v1/100000",
+          "models/sac/v5/1500000",
+        ]
+    random-agent: 0
+    crammer-agent: 0
+  agent_id: 0
+
+ppo-six-player:
+  stack: 500
+  small-blind: 2
+  big-blind: 5
+  buyin_limit: 3
+  players: 6
+  opponents:
+    rl-agent:
+      sac: []
+    random-agent: 0
+    crammer-agent: 5
+  agent_id: 0

@@ -1,0 +1,33 @@
+Idea for training
+
+5 opponents
+
+100 resets of training - update the opponent bots
+
+opponent1 - randomAgent
+opponent2 - randomAgent
+opponent3 - randomAgent
+opponent4 - previous version of our bot
+opponent5 - an even older version of our bot
+player6 -  bot to be trained
+
+dictionary constants
+        self.num_to_action = {
+            0: ActionType.CALL,
+            1: ActionType.RAISE,
+            2: ActionType.CHECK,
+            3: ActionType.FOLD,
+        }
+        self.action_to_num = {
+            ActionType.CALL: 0,
+            ActionType.RAISE: 1,
+            ActionType.CHECK: 2,
+            ActionType.FOLD: 3,
+        }
+        self.suit_to_int = {
+            "s": 1,  # spades
+            "h": 2,  # hearts
+            "d": 3,  # diamonds
+            "c": 4,  # clubs
+        }
+        self.card_num_to_int = {"T": 9, "J": 10, "Q": 11, "K": 12, "A": 13}
