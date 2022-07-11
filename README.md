@@ -1,4 +1,6 @@
 # Poker.AI (Reinforcement Based Poker Robot)
+This project was done in collaboration with By Paul Pan, Sruthi Papanasa, Advaith Ravishankar, Vincent Tu with the Data Science Student Soceity at UCSD
+
 
 This repository contains a Poker environment which has a trained RL robot as the robots made usng stable.baseline3. To use the implementation, install the necessary libraries stated in ```requirements.txt```.
 
