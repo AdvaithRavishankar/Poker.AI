@@ -1,4 +1,5 @@
-from tkinter import *
+# Importing all necessary libraries
+from tkinter import *   
 from PIL import Image, ImageTk
 from typing import TYPE_CHECKING
 
@@ -13,6 +14,19 @@ from engine.game.action_type import ActionType
 if TYPE_CHECKING:
     from poker_env import PokerEnv
 
+"""
+GUI window Class. Helps play and run the visuals for the game
+Field List:
+1. root: the window object from Tkinter
+2. env: contains the poker environment game object
+3. game_cnt: keep track of number of games played
+4. suggestion_agent: agent responsible for suggestion box decisions
+4. CARD_SIZE: Dimensions of card graphic formatted to (width, height)
+5. CARD_SIZE_ROTATED: Dimensions of card graphic if rotated formatted to (width, height)
+6. update: Boolean tracker if game state needs an update
+7. current_round: Sring representation of current round state
+8. converter: Map of Card Object type to card image filename
+"""
 
 class Window:
     def __init__(self, poker):
@@ -51,8 +65,9 @@ class Window:
         }
 
     """ Game States """
-
+    
     def start_state(self):
+        """Method to set startButton"""
         self.startButton = Button(
             self.root,
             text="Start Game",
@@ -66,15 +81,17 @@ class Window:
         self.startButton.place(relx=0.5, rely=0.5, anchor="center")
 
         self.root.mainloop()
-
+    
     def pre_flop(self):
+        """Method to set all preflop with its graphics"""
         self.set_community_cards()
-        # Creating table card objects
+        # Creating table card graphics
         default_card_path = ".//cards//default.png"
         self.default_card = Image.open(default_card_path)
         self.default_card = self.default_card.resize(self.CARD_SIZE)
         self.default_card = ImageTk.PhotoImage(self.default_card)
-
+        
+        # Placing Graphics
         self.table_card_1 = Button(self.root, image=self.default_card, command=None)
         self.table_card_1.place(relx=0.30, rely=0.20, anchor="center")
 
@@ -156,7 +173,7 @@ class Window:
 
         self.player_card_2.place(relx=0.35 + 0.20, rely=0.76, anchor="center")
 
-        # Opponent 2
+        # Opponent 1
         self.opp_1_card_1 = Button(self.root, image=self.default_rotated, command=None)
         self.opp_1_card_1.place(relx=0.928, rely=0.63, anchor="center")
 
@@ -194,8 +211,9 @@ class Window:
         self.update_all()
 
         self.root.mainloop()
-
+    
     def flop(self):
+        """Setting Flop Graphics"""
         self.update_all()
         self.table_card_1.destroy()
         self.show_card_1.place(relx=0.30, rely=0.20, anchor="center")
@@ -207,19 +225,23 @@ class Window:
         self.show_card_3.place(relx=0.50, rely=0.20, anchor="center")
         self.root.mainloop()
 
+     
     def turn(self):
+        """Setting Turn Graphics"""
         self.update_all()
         self.table_card_4.destroy()
         self.show_card_4.place(relx=0.60, rely=0.20, anchor="center")
         self.root.mainloop()
 
     def river(self):
+        """Setting River Graphics"""
         self.update_all()
         self.table_card_5.destroy()
         self.show_card_5.place(relx=0.70, rely=0.20, anchor="center")
         self.root.mainloop()
-
+        
     def end_state(self):
+        """Setting up Game End State"""
         try:
             self.table_card_1.destroy()
             self.show_card_1.place(relx=0.30, rely=0.20, anchor="center")
@@ -277,8 +299,14 @@ class Window:
         self.root.mainloop()
 
     """ Object Functions """
-
+    
+    
     def show_cards(self):
+        """
+        Method which finds card graphic file 
+        and replaces its default graphic with card
+        for players left at the end of the game
+        """
         self.objectsToDestroy = []
         moves = self.get_all_players_moves()
         play = []
@@ -360,8 +388,9 @@ class Window:
             self.objectsToDestroy.append(self.o5_name)
             self.objectsToDestroy.append(self.opp5_c1)
             self.objectsToDestroy.append(self.opp5_c2)
-
+    
     def delete_all(self):
+        """Deletes all Graphics Objects to restart game"""
         # Player Cards
         self.player_chips.destroy()
         self.player_round_bet.destroy()
@@ -402,8 +431,10 @@ class Window:
         self.opp5_chips.destroy()
         self.opp5_move.destroy()
         self.opp5_name.destroy()
+    
 
     def reset_game(self):
+        """Resets Game State back to Pre-Flop"""
         try:
             self.restartButton.destroy()
             self.round_name.destroy()
@@ -432,7 +463,7 @@ class Window:
         self.pre_flop()
 
     def get_card_image_links(self, set_vals):
-
+        """Gets the cards relative file paths"""
         table = []
         for v in set_vals:
             num, suit = str(v)[0], str(v)[1]
@@ -443,6 +474,7 @@ class Window:
         return table
 
     def set_community_cards(self):
+        """sets the community cards and gets its graphics"""
         table = self.get_card_image_links(self.get_community_cards())
         self.player_hand = self.get_card_image_links(self.get_player_hands()[0])
         self.opp1_hand = self.get_card_image_links(self.get_player_hands()[1])
@@ -545,9 +577,11 @@ class Window:
 
         self.opp5_c1 = Button(self.root, image=self.opp5_1, command=None)
         self.opp5_c2 = Button(self.root, image=self.opp5_2, command=None)
-
+   
     def step_game(self):
-        """Which moves poker_env from Pre-Flop, Flop, Turn, River"""
+        """Checks all players moves and steps game to next
+           game state if necessaryr
+        """
         # checks hand phase
         prev = self.env.game.hand_phase
 
