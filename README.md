@@ -6,17 +6,18 @@ Work Splits:
 2. RL Desogn and Training Model: Paul Pan, Advaith Ravishankar, Vincent Tu
 3. GUI Desgin and Creation: Advaith Ravishankar
 
-This repository contains a Poker environment which has a trained RL robot as the robots made usng stable.baseline3. To use the implementation, install the necessary libraries stated in ```requirements.txt```.
+# Running the Game with the GUI
 
-## GUI
+This repository contains a Poker environment which has a trained RL robot as the robots made usng stable.baseline3. To use the implementation, install the necessary libraries stated in ```requirements.txt``` using ```pip install -r requirements.txt```.
 
-To play the game with the functional GUI, run ```poker_env.py``` with ```show_gui=True```. The following window will open up which is made in tkinter:
+To play the game with the functional GUI, run ```pyhton poker_env.py``` in the terminal. The following window will open up which is made in Tkinter:
 
 <p align ="center">
   <img src="./statics/homescreen.png">
 </p>
 
+Play the game as you like. You will be Playing against Bots created by our team with additional suggestions created by our bot.
 
 ## RL Algorithm
 
-We created a model based on Stablebaseline.3's 
+We created a model based on stable.baseline3's 
