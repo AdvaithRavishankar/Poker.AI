@@ -3,7 +3,7 @@ This project was done in collaboration with By Paul Pan, Sruthi Papanasa, Advait
 
 Work Splits:
 1. Game Environment: Paul Pan and Sruthi Papansa
-2. RL Desogn and Training Model: Paul Pan, Advaith Ravishankar, Vincent Tu
+2. RL Design and Training Model: Paul Pan, Advaith Ravishankar, Vincent Tu
 3. GUI Desgin and Creation: Advaith Ravishankar
 
 # Running the Game with the GUI
