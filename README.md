@@ -53,4 +53,9 @@ The reward refers to how the model evaluates if a hand should be played or not. 
 
 Ideal performance should be fluctutaions about zero with several peaks in the positves.
 
+# Results
 
+The Robot performed to the point where it could beat itself and the random robots in 100% of the games. However, when a real user plays against the robot, the robot has a high tendency to FOLD which leads to the conclusion that it does not perform up to par.
+
+# Next Steps
+Design an algorithm which tries to learn opponenets betting habits learn when to play aggressive or passive rather than playing only passively.
