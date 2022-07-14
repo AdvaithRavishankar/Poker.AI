@@ -39,8 +39,18 @@ Observation Space:
 10. "stage_bettings": pot_commits for every player in the current stage
 11. "hand_score": Player hand's score
 
-After training for ober 8 million games, the performance measured up to:
+# Training Process
+
+The bot was initally trained against a random robot were some were configured to be aggressive while some were trained to be passive. Then the robot trained against previous iterations of itself.
+
+After training for over a million games, the performance measured up to:
 
 <p align ="center">
-  <img src="./statics/">
+  <img src="./statics/mean_reward.png">
 </p>
+
+The reward refers to how the model evaluates if a hand should be played or not. Positive means one should play the game. Negative means you will loose the game so player should fold. 
+
+Ideal performance should be fluctutaions about zero with several peaks in the positves.
+
+
