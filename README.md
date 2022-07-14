@@ -20,7 +20,11 @@ Play the game as you like. You will be Playing against Bots created by our team 
 
 ## RL Algorithm
 
-We created a model based on stable.baseline3's PAC training which requires an observation space to track to develop the decision making process.
+We created a model based on stable.baseline3's PPO training which requires an observation space to track to develop the decision making process.
+
+<p align ="center">
+  <img src="./statics/ppo.png">
+</p>
 
 Observation Space:
 1. "actions": All Player Actions
