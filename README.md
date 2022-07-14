@@ -1,5 +1,5 @@
 # Poker.AI (Reinforcement Based Poker Robot)
-This project was done in collaboration with By Paul Pan, Sruthi Papanasa, Advaith Ravishankar, Vincent Tu with the Data Science Student Soceity at UCSD
+This project was done in collaboration with Paul Pan, Sruthi Papanasa, Advaith Ravishankar, Vincent Tu under the Data Science Student Soceity at UCSD
 
 Work Splits:
 1. Game Environment: Paul Pan and Sruthi Papansa
