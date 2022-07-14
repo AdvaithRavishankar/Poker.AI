@@ -20,4 +20,23 @@ Play the game as you like. You will be Playing against Bots created by our team 
 
 ## RL Algorithm
 
-We created a model based on stable.baseline3's 
+We created a model based on stable.baseline3's PAC training which requires an observation space to track to develop the decision making process.
+
+Observation Space:
+1. "actions": All Player Actions
+2. "active":  Players which are actvie
+3. "chips":   chip total for all players
+4. "community_cards": 5 Cards on the table
+5. "player_card":  Player card combinations
+6. "max_raise":   Total amount player can raise
+7. "min_raise":   Minmimum amount player can raise
+8. "pot": current size of game bettings
+9. "player_stacks": pot_commits for every player in the whole game
+10. "stage_bettings": pot_commits for every player in the current stage
+11. "hand_score": Player hand's score
+
+After training for ober 8 million games, the performance measured up to:
+
+<p align ="center">
+  <img src="./statics/">
+</p>
